@@ -9,7 +9,7 @@ interface TemplateProps {
 const Template: React.FC<TemplateProps> = ({ children }) => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <main>{children}</main>
       <Footer />
     </div>

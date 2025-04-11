@@ -1,6 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --purple: #7711dd;
+  --text_banner: "Permanent Marker", cursive;
+  --text_def: "Montserrat", sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: var(--text_def);
+  background-color: #ffff;
+}
+
+.wrapper_component {
+  max-width: 1600px;
+  margin: 0 auto;
+  /* padding: 10px; */
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(227, 227, 227, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #600db4, #610eb4); /* Градиент */
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #560ba1, #560ca0);
 }
