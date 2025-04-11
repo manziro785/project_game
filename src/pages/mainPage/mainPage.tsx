@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./mainPage.module.css";
 import Template from "../../components/common/templateComp";
 import AboutUs from "../../components/mainPage/aboutUs/aboutUs";

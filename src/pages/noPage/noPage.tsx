@@ -1,4 +1,3 @@
-import React from "react";
 import "./noPage.css";
 
 export default function NoPage() {

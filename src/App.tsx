@@ -1,11 +1,10 @@
 import "./common.css";
 import { RouterProvider } from "react-router-dom";
 import { routers } from "./app/routers.tsx";
-import React, { useEffect, useState, createContext } from "react";
+import { useEffect, useState, createContext } from "react";
 import axios from "axios";
-import "@mantine/core/styles.css";
+// import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
-import { createTheme } from "@mantine/core";
 
 export const AuthContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>]
@@ -13,8 +12,6 @@ export const AuthContext = createContext<
 export const UserContext = createContext<
   [any, React.Dispatch<React.SetStateAction<any>>]
 >([{}, () => {}]);
-
-const theme = createTheme({});
 
 const App = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -44,7 +41,7 @@ const App = () => {
 
   return (
     <>
-      <MantineProvider theme={theme} defaultColorScheme="light">
+      <MantineProvider>
         <AuthContext.Provider value={[isAuth, setIsAuth]}>
           <UserContext.Provider value={[user, setUser]}>
             <RouterProvider router={routers} />

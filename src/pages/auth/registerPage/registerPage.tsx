@@ -1,4 +1,3 @@
-import React from "react";
 import "./registerPage.css";
 import RegisterForm from "../../../components/auth/registerForm/registerForm";
 
