@@ -349,7 +349,7 @@ import bg from "../../assets/common/Group 427321682.svg";
 import img_boy from "../../assets/common/Leonardo_Phoenix_10_A_fullbody_cartoon_illustration_of_a_10yea_2-Photoroom 1 (2).svg";
 import { NavLink } from "react-router-dom";
 
-export default function TestPage() {
+export default function TestPage3() {
   return (
     <div>
       <div
@@ -371,34 +371,39 @@ export default function TestPage() {
             <div className={style_glob.card}>
               <img src="" alt="" />
               <p>
-                Потребительский кредит — это деньги, которые берут в долг, чтобы
-                купить что-то для себя. Их нужно вернуть с дополнительной
-                платой.
+                А накопительный счёт можно пополнять на любые суммы и снимать
+                сколько нужно, когда понадобится. Вы можете распоряжаться
+                деньгами на счёте без особых ограничений.
               </p>
             </div>
             <div className={style_glob.form}>
               <div className={style_glob.up}>
-                Ты очень хочешь новый планшет. Родители могут взять кредит, но
-                это создаст трудности в семье. Что ты выберешь?
+                Ты увидел в магазине вкусное мороженое, но у тебя совсем нет
+                денег. Что ты сделаешь?
               </div>
               <div className={style_glob.down}>
                 <div className={style_glob.block}>
-                  <NavLink className={style_glob.item} to="/test/3">
-                    <div>Уговоришь родителей взять кредит на планшет</div>
+                  <NavLink className={style_glob.item} to="/test/check">
+                    <div>
+                      Попрошу у родителей, пообещав отдать из своих карманных
+                      денег позже.
+                    </div>
                   </NavLink>
-                  <NavLink className={style_glob.item} to="/test/3">
-                    <div>Попробуешь сам заработать</div>
+                  <NavLink className={style_glob.item} to="/test/check">
+                    <div>
+                      Подумаю, что лучше подождать, когда у меня будут деньги.{" "}
+                    </div>
                   </NavLink>{" "}
                 </div>
                 <div className={style_glob.block}>
-                  <NavLink className={style_glob.item} to="/test/3">
-                    <div>
-                      Подождёшь дня рождения или начнёшь копить из карманных
-                      денег
-                    </div>
+                  <NavLink className={style_glob.item} to="/test/check">
+                    <div>Попрошу у друга, и забуду вернуть</div>
                   </NavLink>
-                  <NavLink className={style_glob.item} to="/test/3">
-                    <div>Взять деньги без разрешения</div>
+                  <NavLink className={style_glob.item} to="/test/check">
+                    <div>
+                      Скажу, что мне его "очень нужно" и попытаюсь взять в долг
+                      у незнакомого человека.{" "}
+                    </div>
                   </NavLink>
                 </div>
               </div>
