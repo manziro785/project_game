@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; // Для работы с параметрами URL
+import { useParams } from "react-router-dom";
 import style from "../../pages/startSurvey/startSurvey.module.css";
 import style_glob from "./testPage.module.css";
 import img_step from "../../assets/common/Group 427321687.svg";
@@ -8,14 +8,25 @@ import bg from "../../assets/common/Group 427321682.svg";
 import img_boy from "../../assets/common/Leonardo_Phoenix_10_A_fullbody_cartoon_illustration_of_a_10yea_2-Photoroom 1 (2).svg";
 import { v4 as uuidv4 } from "uuid";
 
-export default function TestPage() {
-  const { id } = useParams(); // Используем useParams для получения id из URL
-  const [question, setQuestion] = useState(null); // Для хранения текущего вопроса
-  const [answers, setAnswers] = useState([]); // Для хранения вариантов ответа
-  const [message, setMessage] = useState(""); // Состояние для хранения сообщения
-  const [sessionUUID] = useState(uuidv4()); // Генерация UUID для сессии
+// Интерфейсы
+interface Question {
+  question_id: number;
+  text: string;
+}
 
-  // Запрос на старт игры и получение вопросов
+interface Answer {
+  answer_id: number;
+  text: string;
+}
+
+export default function TestPage() {
+  const { id } = useParams();
+  const [question, setQuestion] = useState<Question | null>(null);
+  const [answers, setAnswers] = useState<Answer[]>([]);
+  const [message, setMessage] = useState("");
+  const [sessionUUID] = useState(uuidv4());
+
+  // Получение токена и вопросов
   useEffect(() => {
     const fetchTokenAndData = async () => {
       try {
@@ -37,14 +48,15 @@ export default function TestPage() {
         if (tokenResponse.data.questions) {
           setQuestion(
             tokenResponse.data.questions.find(
-              (q) => q.question_id === parseInt(id)
+              (q: any) => q.question_id === parseInt(id || "0")
             )
-          ); // Найдем вопрос по id
+          );
         }
       } catch (error) {
+        const err = error as any;
         console.error(
           "Ошибка при получении данных:",
-          error.response?.data || error.message
+          err.response?.data || err.message
         );
       }
     };
@@ -52,7 +64,7 @@ export default function TestPage() {
     fetchTokenAndData();
   }, [id, sessionUUID]);
 
-  // Запрос на получение ответов для текущего вопроса
+  // Получение вариантов ответа
   useEffect(() => {
     const fetchAnswers = async () => {
       if (question) {
@@ -60,35 +72,42 @@ export default function TestPage() {
           const response = await axios.get(
             `https://inai-5.onrender.com/bank-quiz/api/answer_option/${question.question_id}/`
           );
-          setAnswers(response.data); // Сохраняем ответы
+          setAnswers(response.data);
         } catch (error) {
-          console.error("Ошибка при получении вариантов ответа:", error);
+          const err = error as any;
+          console.error(
+            "Ошибка при получении вариантов ответа:",
+            err.response?.data || err.message
+          );
         }
       }
     };
 
     fetchAnswers();
-  }, [question]); // Загружаем ответы каждый раз, когда меняется вопрос
+  }, [question]);
 
-  const handleItemClick = async (answerId) => {
+  const handleItemClick = async (answerId: number) => {
     try {
       const token = localStorage.getItem("quizToken");
       const response = await axios.post(
         `https://inai-5.onrender.com/bank-quiz/api/submit_answer/`,
         {
-          questionId: question.question_id,
+          questionId: question?.question_id,
           answerId: answerId,
           token: token,
         }
       );
 
       if (response.data.success) {
-        // После отправки ответа можно переходить к следующему вопросу
         console.log("Ответ на сервере:", response.data);
-        // Переход к следующему вопросу или другому действию
+        // здесь можно добавить переход к следующему вопросу
       }
     } catch (error) {
-      console.error("Ошибка при отправке данных:", error);
+      const err = error as any;
+      console.error(
+        "Ошибка при отправке данных:",
+        err.response?.data || err.message
+      );
     }
   };
 
@@ -119,10 +138,8 @@ export default function TestPage() {
             </div>
 
             <div className={style_glob.form}>
-              {/* Отображаем сообщение */}
               {message && <div className={style_glob.up}>{message}</div>}
 
-              {/* Отображаем вопрос и варианты ответа */}
               {question ? (
                 <div>
                   <div className={style_glob.up}>{question.text}</div>
