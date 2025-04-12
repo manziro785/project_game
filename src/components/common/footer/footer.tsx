@@ -12,12 +12,12 @@ export default function Footer() {
               <img src={logo} alt="" />
             </div>
             <div className={style.btns}>
-              <NavLink to="/" style={{ textDecoration: "none" }}>
+              <NavLink to="/start_survey" style={{ textDecoration: "none" }}>
                 <div className={style.btn_play}>Играть</div>
               </NavLink>
-              <NavLink to="/" style={{ textDecoration: "none" }}>
+              {/* <NavLink to="/" style={{ textDecoration: "none" }}>
                 <div className={style.btn_test}>Тест</div>
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
         </div>
