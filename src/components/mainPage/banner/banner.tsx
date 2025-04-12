@@ -16,7 +16,7 @@ export default function Banner() {
                 обращаться с кредитами в увлекательной форме.
               </p>
               <div className={style.btns}>
-                <NavLink to="/" style={{ textDecoration: "none" }}>
+                <NavLink to="/start_survey" style={{ textDecoration: "none" }}>
                   <div className={style.btn_play}>Играть</div>
                 </NavLink>
                 <NavLink to="/" style={{ textDecoration: "none" }}>

@@ -1,0 +1,60 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* создаём 2 колонки */
+  gap: 1rem; /* отступы между элементами */
+}
+
+.item {
+  border-radius: 10px;
+  width: 100%;
+  border: 3px solid #000000;
+  background-color: #ffff;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.left {
+  display: flex;
+  align-items: end;
+}
+
+.card p {
+  background-color: #fa6648;
+  border: 3px solid #000;
+  border-radius: 70px;
+  padding: 20px 40px;
+  color: #ededed;
+  font-weight: 700;
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  width: 50%;
+}
+
+.up {
+  background-color: #ffbd12;
+  border-radius: 10px;
+  border: 3px solid #1c1c1d;
+  padding: 2rem 3rem;
+  margin: 0 0.5rem 1rem 0.5rem;
+}
+
+.down {
+  width: 100%;
+}
+
+.block {
+  display: flex;
+  flex-direction: row;
+  min-width: 100%;
+}

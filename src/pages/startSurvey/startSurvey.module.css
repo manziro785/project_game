@@ -22,8 +22,17 @@
   border: 3px solid #2a2020;
   border-radius: 15px;
   color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.progress {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
   margin-top: -3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .box {
@@ -91,6 +100,11 @@
   .btn {
     font-size: 0.9rem;
     padding: 1rem 2rem;
+  }
+
+  .progress img {
+    width: 40%;
+    margin: 0 0.5rem 2rem 0.5rem;
   }
 }
 

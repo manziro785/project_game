@@ -1,5 +1,7 @@
 import style from "./startSurvey.module.css";
 import bg from "../../assets/common/Group 427321682.svg";
+import img_step from "../../assets/common/Group 427321687.svg";
+import { NavLink } from "react-router-dom";
 
 export default function StartSurvey() {
   return (
@@ -10,7 +12,9 @@ export default function StartSurvey() {
       >
         <div className={style.header}>
           <div className={style.upSide}>Глава: Детство</div>
-          {/* <div className={style.progress}>0 0 0 0 0 0 0</div> */}
+          <div className={style.progress}>
+            <img src={img_step} alt="" />
+          </div>
         </div>
 
         <div className={style.box}>
@@ -34,7 +38,9 @@ export default function StartSurvey() {
             поможет закрепить, что ты понял и запомнил.
           </p>
         </div>
-        <div className={style.btn}>Начать игру</div>
+        <NavLink to="/test/2">
+          <div className={style.btn}>Начать игру</div>
+        </NavLink>
       </div>
     </div>
   );

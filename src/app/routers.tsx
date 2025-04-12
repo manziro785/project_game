@@ -4,6 +4,7 @@ import RegisterPage from "../pages/auth/registerPage/registerPage.tsx";
 import LoginPage from "../pages/auth/loginPage/loginPage.tsx";
 import NoPage from "../pages/noPage/noPage.tsx";
 import StartSurvey from "../pages/startSurvey/startSurvey.tsx";
+import TestPage from "../components/testPage/testPage.tsx";
 
 export const routers = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ export const routers = createBrowserRouter([
   {
     path: "/start_survey",
     element: <StartSurvey />,
+  },
+  {
+    path: "/test/:id",
+    element: <TestPage />,
   },
   {
     path: "/register",
